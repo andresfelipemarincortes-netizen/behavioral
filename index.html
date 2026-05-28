@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El efecto real de los nudges — Hu et al. 2025</title>
+
+<!-- SEO básico -->
+<meta name="description" content="Una síntesis de 14 meta-análisis y 30 millones de participantes muestra que el efecto promedio de los nudges es pequeño y cae −98,5 % al ajustar por sesgo de publicación.">
+<meta name="author" content="Andrés Marín Cortés, PhD">
+
+<!-- Open Graph (LinkedIn, Facebook) -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="REEMPLAZAR_CON_TU_URL/index.html">
+<meta property="og:title" content="¿Realmente funcionan los nudges? Meta-análisis de Hu et al. (2025)">
+<meta property="og:description" content="Una síntesis de 14 meta-análisis y 30 millones de participantes muestra que el efecto promedio de los nudges es pequeño y cae −98,5 % al ajustar por sesgo de publicación.">
+<meta property="og:image" content="REEMPLAZAR_CON_TU_URL/og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Infografía: ¿Realmente funcionan los nudges? Síntesis de 14 meta-análisis y 30 millones de participantes. Reducción del efecto −98,5 %.">
+<meta property="og:locale" content="es_CO">
+<meta property="og:site_name" content="Andrés Marín Cortés">
+<meta property="article:author" content="https://www.linkedin.com/in/andresmarincortes/">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Realmente funcionan los nudges? Meta-análisis de Hu et al. (2025)">
+<meta name="twitter:description" content="14 meta-análisis · 30 millones de participantes · El efecto cae −98,5 % al ajustar por sesgo de publicación.">
+<meta name="twitter:image" content="REEMPLAZAR_CON_TU_URL/og-preview.png">
+
+<!-- Theme color para móvil -->
+<meta name="theme-color" content="#F2ECDC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2ECDC;--paper-light:#F8F3E5;--surface:#FBF7EA;
+  --ink:#1A1F2A;--ink-soft:#4A4F5B;--ink-muted:#8A8780;
+  --hairline:#D8CFB7;--hairline-soft:#E8E0CA;
+  --teal:#1B5F58;--teal-soft:#3A8079;--teal-bg:#D9E6E3;
+  --rust:#B14F2F;--rust-soft:#D67354;--rust-bg:#F2DDD2;
+  --warmgray:#9B9384;--warmgray-bg:#E0DAC9;
+  --display:'Fraunces',Georgia,serif;
+  --body:'IBM Plex Sans',-apple-system,system-ui,sans-serif;
+  --mono:'IBM Plex Mono',Menlo,monospace;
+  --topbar-h:68px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);background:var(--paper);color:var(--ink);
+  font-size:16px;line-height:1.65;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background-image:radial-gradient(rgba(26,31,42,0.025) 1px,transparent 1px);
+  background-size:24px 24px;padding-top:var(--topbar-h);
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+i{font-style:italic}
+
+/* TOP BAR */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(248,243,229,0.88);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:0.5px solid var(--hairline);
+  height:var(--topbar-h);display:flex;align-items:center;
+}
+.topbar-inner{max-width:1080px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:14px;width:100%}
+.avatar{
+  width:46px;height:46px;border-radius:50%;
+  object-fit:cover;object-position:center 30%;flex-shrink:0;
+  border:1.5px solid var(--ink);
+  transition:transform .35s cubic-bezier(.34,1.5,.64,1);
+}
+.avatar:hover{transform:scale(1.06) rotate(-2deg);box-shadow:0 0 0 3px rgba(177,79,47,0.15)}
+.topbar-text{flex:1;line-height:1.25;min-width:0}
+.topbar-text .label{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-muted);margin-bottom:2px}
+.topbar-text .name-line{font-size:14px;color:var(--ink);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.topbar-text .name-line a{font-weight:500;color:var(--ink);text-decoration:none;position:relative;transition:color .2s}
+.topbar-text .name-line a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--rust);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.topbar-text .name-line a:hover{color:var(--rust)}
+.topbar-text .name-line a:hover::after{transform:scaleX(1)}
+.topbar-text .dot{color:var(--hairline)}
+.topbar-text .role{font-style:italic;font-family:var(--display);color:var(--ink-soft);font-size:13.5px}
+.topbar-linkedin{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:transparent;border:0.5px solid transparent;transition:all .25s ease;flex-shrink:0}
+.topbar-linkedin:hover{border-color:var(--hairline);background:var(--paper-light);transform:translateY(-1px)}
+.topbar-linkedin svg{width:20px;height:20px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+/* HERO */
+.hero{padding:72px 0 64px;border-bottom:0.5px solid var(--hairline)}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,5.5vw,68px);line-height:1.04;letter-spacing:-0.02em;margin-bottom:32px;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 30;max-width:920px}
+.hero h1 em{font-style:italic;color:var(--rust);font-weight:500;font-variation-settings:"opsz" 144,"SOFT" 100;position:relative;display:inline-block}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:0.05em;height:0.08em;background:var(--rust);opacity:0.18;transform:scaleX(0);transform-origin:left;animation:underlineDraw 1s ease .8s forwards}
+@keyframes underlineDraw{to{transform:scaleX(1)}}
+.hero-lead{font-family:var(--display);font-size:22px;line-height:1.5;color:var(--ink-soft);font-weight:400;max-width:820px;font-variation-settings:"opsz" 24}
+.hero-lead strong{font-weight:600;color:var(--ink);font-variation-settings:"opsz" 24,"SOFT" 30}
+
+section{padding:88px 0;border-bottom:0.5px solid var(--hairline)}
+.section-num{font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-muted);text-transform:uppercase;margin-bottom:16px}
+.section-num em{font-style:normal;color:var(--rust);font-weight:500;margin-right:8px}
+.section-head{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.5vw,42px);line-height:1.15;letter-spacing:-0.015em;margin-bottom:18px;color:var(--ink);font-variation-settings:"opsz" 72;max-width:780px}
+.section-head em{font-style:italic;font-weight:500}
+.section-intro{font-size:17px;line-height:1.7;color:var(--ink-soft);max-width:760px;margin-bottom:40px}
+.section-intro strong{font-weight:500;color:var(--ink);background:rgba(177,79,47,0.1);padding:1px 4px;border-radius:2px}
+
+/* WHAT IS A NUDGE */
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.what-card{background:var(--surface);border:0.5px solid var(--hairline);padding:36px 34px;border-radius:2px;position:relative}
+.what-card::before{content:"\201C";position:absolute;top:-12px;left:24px;font-family:var(--display);font-size:80px;line-height:1;color:var(--rust);opacity:0.55}
+.what-card .definition{font-family:var(--display);font-size:22px;line-height:1.4;color:var(--ink);font-weight:500;font-style:italic;font-variation-settings:"opsz" 36}
+.what-card .attribution{margin-top:20px;padding-top:16px;border-top:0.5px solid var(--hairline);font-size:14px;line-height:1.65;color:var(--ink-soft)}
+.what-card .attribution em{font-style:italic;font-family:var(--display)}
+
+.three-families .lead{font-family:var(--display);font-size:22px;line-height:1.4;color:var(--ink);font-weight:500;font-variation-settings:"opsz" 36;margin-bottom:24px}
+.family-item{padding:16px 0;border-bottom:0.5px solid var(--hairline-soft);font-size:17px;line-height:1.55;color:var(--ink);display:flex;gap:14px;align-items:flex-start;opacity:0;transform:translateX(-12px);transition:opacity .6s ease, transform .6s ease}
+.family-item.in{opacity:1;transform:translateX(0)}
+.family-item:last-child{border-bottom:0}
+.family-item .marker{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--paper);border:0.5px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:1px;transition:all .3s ease}
+.family-item:hover .marker{background:var(--rust-bg);color:var(--rust);border-color:var(--rust)}
+.family-item strong{font-weight:500;color:var(--ink)}
+.family-item .desc{color:var(--ink-soft);font-size:15px;display:block;margin-top:2px}
+
+.big-question{margin:72px 0 0;padding:64px 32px 56px;border-top:0.5px solid var(--hairline);text-align:center;background:linear-gradient(to bottom,transparent,rgba(177,79,47,0.05));position:relative}
+.big-question .q-label{font-family:var(--mono);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--rust);margin-bottom:24px}
+.big-question p{font-family:var(--display);font-size:clamp(28px,3.8vw,44px);line-height:1.2;color:var(--ink);font-weight:500;letter-spacing:-0.015em;max-width:900px;margin:0 auto;font-variation-settings:"opsz" 96,"SOFT" 30}
+.big-question em{font-style:italic;color:var(--rust);font-variation-settings:"opsz" 96,"SOFT" 100}
+
+/* TOOLTIPS */
+.tip{position:relative;cursor:help;border-bottom:1px dotted var(--ink-muted)}
+.tip::before{content:"";position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:2px;border:6px solid transparent;border-top-color:var(--ink);opacity:0;pointer-events:none;transition:opacity .2s;z-index:51}
+.tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:14px 16px;border-radius:4px;font-size:12.5px;font-family:var(--body);font-weight:400;line-height:1.55;width:280px;max-width:80vw;text-align:left;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s, visibility .2s;z-index:50;white-space:normal;letter-spacing:0;text-transform:none;font-style:normal;color:rgba(242,236,220,0.95);box-shadow:0 8px 24px rgba(0,0,0,0.22)}
+.tip:hover::after,.tip:hover::before{opacity:1;visibility:visible}
+
+/* COLLAPSE CHART */
+.collapse-wrap{background:var(--surface);border:0.5px solid var(--hairline);padding:48px 40px;border-radius:2px;margin-bottom:32px;position:relative}
+.collapse-title{font-family:var(--display);font-size:22px;font-weight:500;color:var(--ink);font-variation-settings:"opsz" 36;margin-bottom:32px}
+.bar-row{display:grid;grid-template-columns:240px 1fr 140px;gap:20px;align-items:center;padding:20px 0;border-bottom:0.5px solid var(--hairline-soft);cursor:default;transition:background .15s}
+.bar-row:last-child{border-bottom:0}
+.bar-row:hover{background:rgba(216,207,183,0.18)}
+.bar-label{font-family:var(--body);font-size:14px;font-weight:500;color:var(--ink)}
+.bar-label .lbl-tip{display:inline-block;border-bottom:1px dotted var(--ink-muted);cursor:help;position:relative}
+.bar-label .sub{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-muted);font-weight:400;margin-top:3px;letter-spacing:0.3px}
+.plot-area{position:relative;height:24px}
+.zero-line{position:absolute;top:-4px;bottom:-4px;width:1px;background:var(--ink);opacity:0.45}
+.zero-label{position:absolute;top:-22px;font-family:var(--mono);font-size:9px;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-muted);background:var(--surface);padding:1px 5px;white-space:nowrap;transform:translateX(-50%);opacity:0;transition:opacity .5s ease 1s}
+.bar-visible ~ .axis .zero-label,.zone-zero{opacity:1}
+.ci-bar{position:absolute;top:10px;height:4px;border-radius:2px;opacity:0;transition:opacity .8s ease, transform .8s cubic-bezier(0.22, 1, 0.36, 1);transform:scaleX(0);transform-origin:left}
+.bar-visible .ci-bar{opacity:1;transform:scaleX(1)}
+.ci-cap{position:absolute;top:4px;width:2px;height:16px;opacity:0;transition:opacity .6s ease .4s}
+.bar-visible .ci-cap{opacity:1}
+.ci-point{position:absolute;top:6px;width:12px;height:12px;border-radius:50%;transform:translateX(-50%) scale(0);border:2px solid var(--surface);transition:transform .5s cubic-bezier(.34,1.6,.64,1) .6s}
+.bar-visible .ci-point{transform:translateX(-50%) scale(1)}
+#collapseChart .bar-visible .ci-point{animation:pulseTeal 2.6s ease-in-out infinite 1.4s}
+#collapseChart .bar-row:nth-of-type(2).bar-visible .ci-point{animation-delay:1.7s}
+#collapseChart .bar-row.pulse-rust.bar-visible .ci-point{animation:pulseRust 2.4s ease-in-out infinite 2s}
+@keyframes pulseTeal{0%,100%{box-shadow:0 0 0 0 rgba(27,95,88,0.5)}50%{box-shadow:0 0 0 12px rgba(27,95,88,0)}}
+@keyframes pulseRust{0%,100%{box-shadow:0 0 0 0 rgba(177,79,47,0.55)}50%{box-shadow:0 0 0 14px rgba(177,79,47,0)}}
+.bar-value{font-family:var(--mono);font-size:14px;font-weight:500;text-align:right;color:var(--ink);font-variant-numeric:tabular-nums;position:relative}
+.bar-value[data-tip]{cursor:help}
+.bar-value .ci{display:block;font-size:11px;font-weight:400;color:var(--ink-muted);margin-top:2px}
+.bar-value[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);right:0;background:var(--ink);color:rgba(242,236,220,0.95);padding:14px 16px;border-radius:4px;font-size:12.5px;font-family:var(--body);font-weight:400;line-height:1.55;width:280px;max-width:80vw;text-align:left;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s, visibility .2s;z-index:50;letter-spacing:0;text-transform:none;font-variant-numeric:normal;box-shadow:0 8px 24px rgba(0,0,0,0.22)}
+.bar-value[data-tip]:hover::after{opacity:1;visibility:visible}
+
+.axis{display:grid;grid-template-columns:240px 1fr 140px;gap:20px;margin-top:14px;padding-top:10px;border-top:1px solid var(--ink);position:relative}
+.axis-ticks{position:relative;height:14px;font-family:var(--mono);font-size:10px;color:var(--ink-muted);letter-spacing:0.5px}
+.axis-ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap;top:0}
+.axis-ticks span.tick-first{transform:translateX(0)}
+.axis-ticks span.tick-last{transform:translateX(-100%)}
+.axis-label{text-align:center;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-muted);margin-top:8px}
+
+/* CALLOUT */
+.collapse-callout{margin-top:32px;padding:32px 36px;background:var(--ink);border-radius:4px;display:flex;align-items:center;gap:28px;opacity:0;transform:translateY(16px);transition:opacity .8s ease, transform .8s ease;position:relative;overflow:hidden}
+.collapse-callout::before{content:"";position:absolute;top:-30%;right:-15%;width:300px;height:300px;background:radial-gradient(circle,rgba(177,79,47,0.25),transparent 70%);pointer-events:none}
+.collapse-callout.shown{opacity:1;transform:translateY(0)}
+.callout-stat{font-family:var(--display);font-size:72px;line-height:1;font-weight:600;color:var(--rust-soft);letter-spacing:-0.03em;font-variation-settings:"opsz" 144;flex-shrink:0;display:inline-flex;align-items:baseline;position:relative}
+.cs-minus{font-weight:900;display:inline-block;margin-right:0.05em;line-height:0.9;font-variation-settings:"opsz" 144,"wght" 900;-webkit-text-stroke:0.035em currentColor;text-shadow:0 0 0.5px currentColor}
+.cs-num{font-variant-numeric:tabular-nums;font-weight:600}
+.cs-pct{margin-left:0.2em;font-weight:500;font-size:0.82em}
+.callout-text{position:relative;color:var(--paper)}
+.callout-text .label{font-family:var(--mono);font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--rust-soft);margin-bottom:6px}
+.callout-text .desc{font-family:var(--display);font-size:18px;line-height:1.45;color:var(--paper);font-weight:400;font-variation-settings:"opsz" 24;max-width:440px}
+.callout-text .desc em{font-style:italic;color:var(--rust-soft)}
+
+/* SCALE STRIP */
+.scale-strip{margin-top:36px;padding:32px 32px 24px;background:var(--paper-light);border:0.5px solid var(--hairline);border-radius:2px;position:relative;overflow:visible}
+.scale-strip .scale-label{font-family:var(--display);font-size:clamp(20px,2.4vw,24px);font-weight:500;line-height:1.3;color:var(--ink);margin-bottom:44px;font-variation-settings:"opsz" 36;letter-spacing:-0.01em}
+.scale-fig{position:relative;height:90px;margin:0 24px}
+.scale-fig .scale-bar{position:absolute;top:32px;left:0;right:0;height:8px;background:linear-gradient(to right,var(--paper) 0%,var(--warmgray) 50%,var(--ink) 100%);border-radius:4px;box-shadow:inset 0 1px 2px rgba(0,0,0,0.06)}
+.scale-fig .th{position:absolute;top:25px;width:2px;height:22px;background:var(--ink);opacity:0.7;transform:scaleY(0);transform-origin:top;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.scale-strip.in .scale-fig .th{transform:scaleY(1)}
+.scale-strip.in .scale-fig .th[data-i="0"]{transition-delay:0.15s}
+.scale-strip.in .scale-fig .th[data-i="1"]{transition-delay:0.28s}
+.scale-strip.in .scale-fig .th[data-i="2"]{transition-delay:0.41s}
+.scale-strip.in .scale-fig .th[data-i="3"]{transition-delay:0.54s}
+.scale-strip.in .scale-fig .th[data-i="4"]{transition-delay:0.67s}
+.scale-fig .num-lbl{position:absolute;top:8px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--ink-soft);letter-spacing:0.3px;font-variant-numeric:tabular-nums;font-weight:500;opacity:0;transition:opacity .5s ease}
+.scale-strip.in .scale-fig .num-lbl{opacity:1;transition-delay:0.4s}
+.scale-fig .cat-lbl{position:absolute;top:60px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.7px;white-space:nowrap;text-align:center;opacity:0;transform:translate(-50%,4px);transition:opacity .5s ease, transform .5s ease}
+.scale-strip.in .scale-fig .cat-lbl{opacity:1;transform:translate(-50%,0)}
+.scale-strip.in .scale-fig .cat-lbl[data-i="0"]{transition-delay:0.75s}
+.scale-strip.in .scale-fig .cat-lbl[data-i="1"]{transition-delay:0.85s}
+.scale-strip.in .scale-fig .cat-lbl[data-i="2"]{transition-delay:0.95s}
+.scale-strip.in .scale-fig .cat-lbl[data-i="3"]{transition-delay:1.05s}
+.scale-strip.in .scale-fig .cat-lbl[data-i="4"]{transition-delay:1.15s}
+.scale-fig .current-mark{position:absolute;top:-36px;transform:translateX(-50%);text-align:center;opacity:0;transition:opacity .5s ease}
+.scale-strip.in .scale-fig .current-mark{opacity:1;transition-delay:1.3s}
+.scale-fig .current-mark .cm-label{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--rust);background:var(--paper-light);padding:4px 10px;border:1px solid var(--rust);border-radius:14px;white-space:nowrap;letter-spacing:0.3px}
+.scale-fig .current-mark .cm-arrow{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--rust);line-height:1;margin-top:4px;animation:bounceDown 1.6s ease-in-out infinite}
+.scale-fig .current-mark .cm-bar{position:absolute;top:34px;left:50%;width:1.5px;height:34px;background:var(--rust);opacity:0.6;transform:translateX(-50%) scaleY(0);transform-origin:top;transition:transform .5s ease}
+.scale-strip.in .scale-fig .current-mark .cm-bar{transform:translateX(-50%) scaleY(1);transition-delay:1.5s}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+.scale-note{margin-top:8px;font-size:14px;color:var(--ink-soft);line-height:1.65;font-style:italic;font-family:var(--display);max-width:780px}
+
+/* MODERATOR CARDS */
+.mod-grid{display:flex;flex-direction:column;gap:24px;margin-top:8px}
+.mod-card{background:var(--surface);border:0.5px solid var(--hairline);border-radius:2px;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease}
+.mod-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(26,31,42,0.07)}
+.mod-card-head{display:flex;align-items:flex-start;gap:18px;padding:24px 32px 20px;border-bottom:0.5px solid var(--hairline-soft);background:linear-gradient(to right,rgba(216,207,183,0.18),transparent)}
+.mod-card-letter{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:20px;font-weight:500;font-style:italic;font-variation-settings:"opsz" 36}
+.mod-card-titles{flex:1}
+.mod-card-titles h3{font-family:var(--display);font-size:22px;font-weight:500;color:var(--ink);font-variation-settings:"opsz" 36;margin-bottom:4px;line-height:1.2}
+.mod-card-titles p{font-size:13px;color:var(--ink-muted);line-height:1.5;font-style:italic;font-family:var(--display)}
+.mod-card-body{padding:8px 32px 28px;position:relative}
+
+.mod-row{display:grid;grid-template-columns:200px 1fr 140px;gap:20px;align-items:center;padding:14px 0;border-bottom:0.5px solid var(--hairline-soft);transition:background .15s;cursor:default;position:relative}
+.mod-row:last-of-type{border-bottom:0}
+.mod-row:hover{background:rgba(216,207,183,0.15)}
+.mod-row.top::before{content:"";position:absolute;left:-32px;top:50%;transform:translateY(-50%);width:3px;height:24px;background:var(--rust);border-radius:0 2px 2px 0}
+.mod-label{font-size:15px;color:var(--ink);font-weight:500;line-height:1.3}
+.mod-label .hint{display:block;font-size:11px;color:var(--ink-muted);margin-top:3px;font-family:var(--mono);font-weight:400;letter-spacing:0.2px}
+.mod-row.top .mod-label::after{content:"más confiable";display:inline-block;margin-left:8px;font-size:10px;font-family:var(--mono);font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--rust);background:var(--rust-bg);padding:2px 7px;border-radius:10px;vertical-align:middle;opacity:0;transform:translateX(-4px);transition:opacity .4s ease, transform .4s ease}
+.mod-card.in .mod-row.top .mod-label::after{opacity:1;transform:translateX(0);transition-delay:1.3s}
+
+/* Mod row bar animations (initially hidden, JS adds .shown) */
+.mod-row .ci-bar{opacity:0;transform:scaleX(0);transform-origin:left}
+.mod-row .ci-cap{opacity:0}
+.mod-row .ci-point{transform:translateX(-50%) scale(0)}
+.mod-row.shown .ci-bar{opacity:1;transform:scaleX(1);transition:opacity .5s ease, transform .8s cubic-bezier(.22,1,.36,1)}
+.mod-row.shown .ci-cap{opacity:1;transition:opacity .4s ease .4s}
+.mod-row.shown .ci-point{transform:translateX(-50%) scale(1);transition:transform .4s cubic-bezier(.34,1.6,.64,1) .5s}
+
+.mod-axis{padding:12px 0 0;border-top:1px solid var(--ink);margin-top:8px;display:grid;grid-template-columns:200px 1fr 140px;gap:20px;position:relative}
+.mod-axis-label{text-align:center;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ink-muted);margin-top:8px}
+
+.legend-mods{display:flex;flex-wrap:wrap;gap:24px;margin-top:24px;padding:16px 0 0;font-size:12px;color:var(--ink-soft);align-items:center}
+.legend-swatch{display:inline-flex;align-items:center;gap:8px}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.legend-mark{display:inline-flex;align-items:center;gap:8px;cursor:help}
+.legend-mark::before{content:"";width:3px;height:14px;background:var(--rust);border-radius:0 2px 2px 0;display:inline-block}
+.mod-note{margin-top:28px;font-size:17px;color:var(--ink-soft);line-height:1.6;max-width:780px;font-style:italic;font-family:var(--display);font-variation-settings:"opsz" 24}
+
+/* BOTTOM LINE */
+.bottom-line{background:var(--ink);color:var(--paper);padding:80px 56px;margin:0 -32px;border-radius:0;position:relative;overflow:hidden}
+.bottom-line::before{content:"";position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(177,79,47,0.18),transparent 70%);pointer-events:none}
+.bottom-line::after{content:"";position:absolute;bottom:-30%;left:-15%;width:400px;height:400px;background:radial-gradient(circle,rgba(27,95,88,0.15),transparent 70%);pointer-events:none}
+.bottom-line .num{font-family:var(--mono);font-size:11px;letter-spacing:1.6px;color:var(--rust-soft);text-transform:uppercase;margin-bottom:18px;position:relative}
+.bottom-line h2{font-family:var(--display);font-size:clamp(30px,4vw,46px);font-weight:500;line-height:1.15;margin-bottom:24px;color:var(--paper);font-variation-settings:"opsz" 72,"SOFT" 50;letter-spacing:-0.015em;max-width:820px;position:relative}
+.bottom-line h2 em{font-style:italic;color:var(--rust-soft)}
+.bottom-line p{font-size:17px;line-height:1.7;color:rgba(242,236,220,0.85);max-width:720px;position:relative;margin-bottom:16px}
+.bottom-line p.recap{margin-top:32px;padding-top:24px;border-top:0.5px solid rgba(242,236,220,0.2);font-family:var(--display);font-style:italic;font-size:19px;color:var(--paper)}
+
+footer{padding:56px 0 72px;border-top:1px solid var(--ink);background:var(--paper-light)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+.footer-ref{font-size:13px;line-height:1.7;color:var(--ink-soft)}
+.footer-ref .label{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;color:var(--ink-muted);text-transform:uppercase;margin-bottom:12px;display:block}
+.footer-ref a{color:var(--rust);text-decoration:none;border-bottom:1px solid var(--rust-bg)}
+.footer-ref a:hover{border-bottom-color:var(--rust)}
+.footer-ref em{font-style:italic;font-family:var(--display)}
+.footer-author{text-align:right;padding-left:32px;border-left:0.5px solid var(--hairline)}
+.footer-author .label{font-family:var(--mono);font-size:10px;letter-spacing:1.4px;color:var(--ink-muted);text-transform:uppercase;margin-bottom:12px}
+.footer-author .name{font-family:var(--display);font-size:22px;font-weight:500;margin-bottom:4px;font-variation-settings:"opsz" 36;line-height:1.2}
+.footer-author .name a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .25s}
+.footer-author .name a:hover{border-bottom-color:var(--rust)}
+.footer-author .role{font-size:14px;font-style:italic;color:var(--ink-soft);font-family:var(--display)}
+.footer-author .li-line{margin-top:12px;font-size:12px;color:var(--ink-muted)}
+.footer-author .li-line a{color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:color .2s}
+.footer-author .li-line a:hover{color:var(--rust)}
+
+@media (max-width:780px){
+  .topbar-inner{padding:0 16px;gap:10px}
+  .topbar-text .role{display:none}
+  .topbar-text .name-line .dot{display:none}
+  .avatar{width:40px;height:40px}
+  .wrap{padding:0 20px}
+  section{padding:60px 0}
+  .hero{padding:48px 0 40px}
+  .what-grid{grid-template-columns:1fr;gap:32px}
+  .collapse-wrap{padding:28px 20px}
+  .bar-row,.axis{grid-template-columns:120px 1fr 92px;gap:10px}
+  .mod-row,.mod-axis{grid-template-columns:120px 1fr 100px;gap:10px}
+  .mod-card-head{padding:20px}
+  .mod-card-body{padding:8px 20px 22px}
+  .mod-row.top::before{left:-22px}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .footer-author{text-align:left;padding-left:0;border-left:0;padding-top:24px;border-top:0.5px solid var(--hairline)}
+  .bottom-line{padding:52px 28px;margin:0 -20px}
+  .big-question{margin-top:48px;padding:44px 16px}
+  .collapse-callout{flex-direction:column;align-items:flex-start;gap:14px;padding:28px 24px}
+  .callout-stat{font-size:54px}
+  .scale-strip{padding:24px 20px 20px}
+  .scale-strip .scale-label{margin-bottom:32px;font-size:19px}
+  .scale-fig{margin:0 12px}
+  .tip::after{width:240px}
+}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.fade-in{opacity:0;transition:opacity 1s ease .2s}
+.fade-in.in{opacity:1}
+
+
+/* Pulse animation on moderator points */
+.mod-row.shown .ci-point[style*="#1B5F58"]{animation:modPulseTeal 2.6s ease-in-out infinite 1.4s}
+.mod-row.shown .ci-point[style*="#9B9384"]{animation:modPulseGray 2.6s ease-in-out infinite 1.4s}
+.mod-row:nth-of-type(2).shown .ci-point{animation-delay:1.6s}
+.mod-row:nth-of-type(3).shown .ci-point{animation-delay:1.8s}
+.mod-row:nth-of-type(4).shown .ci-point{animation-delay:2.0s}
+@keyframes modPulseTeal{0%,100%{box-shadow:0 0 0 0 rgba(27,95,88,0.5)}50%{box-shadow:0 0 0 10px rgba(27,95,88,0)}}
+@keyframes modPulseGray{0%,100%{box-shadow:0 0 0 0 rgba(155,147,132,0.5)}50%{box-shadow:0 0 0 10px rgba(155,147,132,0)}}
+
+.big-question .sub-q{display:inline-block;margin-top:0.45em;font-size:0.72em;color:var(--ink-soft);font-weight:400}
+.big-question .sub-q em{color:var(--rust)}
+</style>
+</head>
+<body>
+
+<h2 class="sr-only">Infografía sobre el meta-análisis de Hu et al. 2025 sobre la efectividad real de los nudges. Síntesis de 14 meta-análisis y casi 30 millones de participantes. El efecto promedio es pequeño y, al ajustar por sesgo de publicación, se acerca a cero.</h2>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <img class="avatar" alt="Andrés Marín Cortés" src="data:image/jpeg;base64,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"/>
+    <div class="topbar-text">
+      <div class="name-line">
+        <a href="https://www.linkedin.com/in/andresmarincortes/" target="_blank" rel="noopener">Andrés Marín Cortés, PhD</a>
+        <span class="dot">·</span>
+        <span class="role">Behavioral Specialist</span>
+      </div>
+    </div>
+    <a href="https://www.linkedin.com/in/andresmarincortes/" target="_blank" rel="noopener" class="topbar-linkedin" aria-label="LinkedIn de Andrés Marín Cortés">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#0A66C2" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section class="hero fade-in">
+  <h1>¿Realmente funcionan los <em>nudges</em>?</h1>
+  <p class="hero-lead">Una síntesis de 14 meta-análisis previos, casi 30 millones de participantes y 15 años de evidencia llega a <strong>una conclusión incómoda:</strong> <i>el efecto promedio es pequeño y, cuando se hace un filtro de lo que las revistas publican selectivamente, prácticamente desaparece.</i></p>
+</section>
+
+<section class="reveal">
+  <div class="section-num"><em>01</em>Punto de partida</div>
+  <h2 class="section-head">¿Qué es exactamente un <em>nudge</em>?</h2>
+
+  <div class="what-grid">
+    <div class="what-card">
+      <p class="definition">Cualquier aspecto de la arquitectura de elección que altera el comportamiento de las personas de una manera predecible sin prohibir ninguna opción ni cambiar significativamente sus incentivos económicos.</p>
+      <p class="attribution">Thaler &amp; Sunstein, <em>Nudge</em> (2008). La idea se popularizó tanto que cientos de gobiernos crearon "unidades de nudge" para aplicarla en políticas públicas.</p>
+    </div>
+
+    <div class="three-families">
+      <p class="lead">Tres familias de <i>nudges</i> según cómo intentan influir:</p>
+      <div class="family-item">
+        <span class="marker">01</span>
+        <span><strong>Dar información.</strong><span class="desc">Etiquetas, recordatorios, mensajes claros.</span></span>
+      </div>
+      <div class="family-item">
+        <span class="marker">02</span>
+        <span><strong>Cambiar el entorno de la decisión.</strong><span class="desc">Opción por defecto, orden de las alternativas, tamaño de la porción.</span></span>
+      </div>
+      <div class="family-item">
+        <span class="marker">03</span>
+        <span><strong>Asistir al usuario.</strong><span class="desc">Recordatorios oportunos, dispositivos de compromiso.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="big-question">
+    <div class="q-label">La pregunta detrás del estudio</div>
+    <p>¿Los <i>nudges</i> <em>de verdad</em> cambian el comportamiento?<br><span class="sub-q">Y si sí, <em>¿cuánto?</em></span></p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-num"><em>02</em>El hallazgo principal</div>
+  <h2 class="section-head">El efecto <em>se desploma</em> cuando se ajusta por sesgo de publicación</h2>
+  <p class="section-intro">El "sesgo de publicación" es la tendencia de las revistas científicas a <strong>publicar más los estudios con resultados llamativos</strong> que los que no encuentran nada. Cuando los autores corrigen estadísticamente por esta distorsión, el efecto promedio de los <i>nudges</i> cambia drásticamente.</p>
+
+  <div class="collapse-wrap">
+    <div class="collapse-title">Tamaño del efecto promedio según el método de corrección</div>
+
+    <div id="collapseChart">
+      <div class="bar-row reveal-bar">
+        <div class="bar-label">
+          <span class="tip" data-tip="Promedio simple de todos los estudios publicados. No considera que muchos estudios sin resultados llamativos pueden no haber sido publicados.">Sin corrección</span>
+          <span class="sub">promedio simple</span>
+        </div>
+        <div class="plot-area">
+          <div class="zero-line" style="left:9.09%"></div>
+          <div class="ci-bar" style="left:38.18%;width:40%;background:#1B5F58"></div>
+          <div class="ci-cap" style="left:38.18%;background:#1B5F58"></div>
+          <div class="ci-cap" style="left:78.18%;background:#1B5F58;margin-left:-2px"></div>
+          <div class="ci-point" style="left:58.18%;background:#1B5F58"></div>
+        </div>
+        <div class="bar-value" data-tip="d = 0,27 es el promedio del efecto sobre todos los estudios. El rango entre corchetes es el intervalo de confianza al 95%: el efecto verdadero está, con alta probabilidad, dentro de él.">d = 0,27<span class="ci">[0,16 — 0,38]</span></div>
+      </div>
+
+      <div class="bar-row reveal-bar">
+        <div class="bar-label">
+          <span class="tip" data-tip="Estimación bayesiana (RoBMA) que ajusta parcialmente el sesgo de publicación, ponderando cuán probable es que algunos estudios estén faltando.">Corrección parcial</span>
+          <span class="sub">modelo bayesiano</span>
+        </div>
+        <div class="plot-area">
+          <div class="zero-line" style="left:9.09%"></div>
+          <div class="ci-bar" style="left:36.36%;width:50.91%;background:#1B5F58"></div>
+          <div class="ci-cap" style="left:36.36%;background:#1B5F58"></div>
+          <div class="ci-cap" style="left:87.27%;background:#1B5F58;margin-left:-2px"></div>
+          <div class="ci-point" style="left:61.82%;background:#1B5F58"></div>
+        </div>
+        <div class="bar-value" data-tip="Con esta corrección parcial, el efecto sigue siendo pequeño (d = 0,29). El rango plausible se mantiene similar al promedio simple.">d = 0,29<span class="ci">[0,15 — 0,43]</span></div>
+      </div>
+
+      <div class="bar-row reveal-bar pulse-rust">
+        <div class="bar-label">
+          <span class="tip" data-tip="Estimación con método PET-PEESE: ajusta el sesgo de publicación de forma más estricta, modelando la relación entre el tamaño del estudio y el efecto reportado.">Corrección completa</span>
+          <span class="sub">PET-PEESE</span>
+        </div>
+        <div class="plot-area">
+          <div class="zero-line" style="left:9.09%"></div>
+          <div class="ci-point" style="left:9.82%;background:#B14F2F;width:14px;height:14px;top:5px"></div>
+        </div>
+        <div class="bar-value" style="color:#B14F2F" data-tip="Tras la corrección completa, el efecto cae a un valor prácticamente nulo. En términos divulgativos: si todos los estudios sin resultados se publicaran, el efecto promedio sería casi cero.">d ≈ 0,004<span class="ci">esencialmente nulo</span></div>
+      </div>
+    </div>
+
+    <div class="axis">
+      <div></div>
+      <div class="axis-ticks">
+        <span class="tick-first" style="left:0%">-0,05</span><span style="left:9.09%">0</span><span style="left:27.27%">0,1</span><span style="left:45.45%">0,2</span><span style="left:63.64%">0,3</span><span style="left:81.82%">0,4</span><span class="tick-last" style="left:100%">0,5</span>
+      </div>
+      <div></div>
+    </div>
+    <div class="axis-label">Tamaño del efecto (d de Cohen) — la línea vertical marca el cero (sin efecto)</div>
+
+    <div class="collapse-callout" id="collapseCallout">
+      <div class="callout-stat"><span class="cs-minus">−</span><span class="cs-num" id="counter">0,0</span><span class="cs-pct">%</span></div>
+      <div class="callout-text">
+        <div class="label">Reducción del efecto promedio</div>
+        <div class="desc">Al ajustar por sesgo de publicación, el efecto cae <em>más de 65 veces</em> respecto al promedio simple.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scale-strip">
+    <div class="scale-label">Para entender qué tan grande es un efecto de d = 0,27</div>
+    <div class="scale-fig">
+      <div class="current-mark" style="left:27%">
+        <div class="cm-label">d = 0,27</div>
+        <div class="cm-arrow">▼</div>
+        <div class="cm-bar"></div>
+      </div>
+      <div class="num-lbl" style="left:0%">0</div>
+      <div class="num-lbl" style="left:10%">0,1</div>
+      <div class="num-lbl" style="left:20%">0,2</div>
+      <div class="num-lbl" style="left:50%">0,5</div>
+      <div class="num-lbl" style="left:80%">0,8</div>
+      <div class="scale-bar">
+        <div class="th" data-i="0" style="left:0%"></div>
+        <div class="th" data-i="1" style="left:10%"></div>
+        <div class="th" data-i="2" style="left:20%"></div>
+        <div class="th" data-i="3" style="left:50%"></div>
+        <div class="th" data-i="4" style="left:80%"></div>
+      </div>
+      <div class="cat-lbl" data-i="0" style="left:5%">Nulo</div>
+      <div class="cat-lbl" data-i="1" style="left:15%">Muy pequeño</div>
+      <div class="cat-lbl" data-i="2" style="left:35%">Pequeño</div>
+      <div class="cat-lbl" data-i="3" style="left:65%">Mediano</div>
+      <div class="cat-lbl" data-i="4" style="left:90%">Grande</div>
+    </div>
+    <p class="scale-note">Imagina dos grupos: uno expuesto a un <i>nudge</i>, otro no. Un d = 0,27 significa que sus comportamientos son muy parecidos: el <i>nudge</i> inclina un poco la balanza, pero sin cambiar de forma drástica las decisiones de la mayoría. Umbrales de interpretación según Funder &amp; Ozer (2019), citados en el estudio.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-num"><em>03</em>Mirando por dentro</div>
+  <h2 class="section-head">¿Dónde parecen funcionar <em>más</em> los <i>nudges</i>?</h2>
+  <p class="section-intro">En las cifras crudas, algunos tipos y dominios se ven más prometedores que otros. Pero <strong>ninguna diferencia resultó estadísticamente significativa</strong>: los estudios incluidos varían tanto entre sí — un mismo tipo de <i>nudge</i> puede funcionar muy bien en un experimento y prácticamente nada en otro — que las brechas observadas podrían deberse al azar.</p>
+
+  <div class="mod-grid">
+
+    <div class="mod-card" id="modCard1">
+      <div class="mod-card-head">
+        <div class="mod-card-letter">A</div>
+        <div class="mod-card-titles">
+          <h3>Según el tipo de <i>nudge</i></h3>
+          <p>¿Cómo intenta cambiar el comportamiento?</p>
+        </div>
+      </div>
+      <div class="mod-card-body">
+        <div class="mod-row">
+          <div class="mod-label">Dar información<span class="hint">etiquetas, mensajes</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:34.55%;width:6.36%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:34.55%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:40.91%;background:#1B5F58;margin-left:-2px"></div>
+            <div class="ci-point" style="left:37.73%;background:#1B5F58"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto pequeño">d = 0,23<span class="ci">[0,16 — 0,30]</span></div>
+        </div>
+
+        <div class="mod-row top">
+          <div class="mod-label">Cambiar el entorno<span class="hint">defaults, layout</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:37.73%;width:15.45%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:37.73%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:53.18%;background:#1B5F58;margin-left:-2px"></div>
+            <div class="ci-point" style="left:45.45%;background:#1B5F58"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto pequeño">d = 0,40<span class="ci">[0,23 — 0,57]</span></div>
+        </div>
+
+        <div class="mod-row">
+          <div class="mod-label">Asistir al usuario<span class="hint">recordatorios</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:31.36%;width:19.55%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:31.36%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:50.91%;background:#1B5F58;margin-left:-2px"></div>
+            <div class="ci-point" style="left:40.91%;background:#1B5F58"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto pequeño">d = 0,30<span class="ci">[0,09 — 0,52]</span></div>
+        </div>
+
+        <div class="mod-axis">
+          <div></div>
+          <div class="axis-ticks">
+            <span class="tick-first" style="left:0%">-0,6</span><span style="left:18.18%">-0,2</span><span style="left:27.27%">0</span><span style="left:45.45%">0,4</span><span style="left:63.64%">0,8</span><span style="left:81.82%">1,2</span><span class="tick-last" style="left:100%">1,6</span>
+          </div>
+          <div></div>
+        </div>
+        <div class="mod-axis-label">Tamaño del efecto (d de Cohen) — la línea vertical marca el cero (sin efecto)</div>
+      </div>
+    </div>
+
+    <div class="mod-card" id="modCard2">
+      <div class="mod-card-head">
+        <div class="mod-card-letter">B</div>
+        <div class="mod-card-titles">
+          <h3>Según el dominio</h3>
+          <p>¿En qué tipo de comportamiento se aplica?</p>
+        </div>
+      </div>
+      <div class="mod-card-body">
+        <div class="mod-row top">
+          <div class="mod-label">Ambiente<span class="hint">reciclaje, energía</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:43.18%;width:8.64%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:43.18%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:51.82%;background:#1B5F58;margin-left:-2px"></div>
+            <div class="ci-point" style="left:47.73%;background:#1B5F58"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto pequeño">d = 0,45<span class="ci">[0,35 — 0,54]</span></div>
+        </div>
+
+        <div class="mod-row">
+          <div class="mod-label">Alimentación<span class="hint">elecciones saludables</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:35.45%;width:13.18%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:35.45%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:48.64%;background:#1B5F58;margin-left:-2px"></div>
+            <div class="ci-point" style="left:42.27%;background:#1B5F58"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto pequeño">d = 0,33<span class="ci">[0,18 — 0,47]</span></div>
+        </div>
+
+        <div class="mod-row">
+          <div class="mod-label">Salud<span class="hint">vacunación, ejercicio</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:26.82%;width:16.82%;background:#9B9384"></div>
+            <div class="ci-cap" style="left:26.82%;background:#9B9384"></div>
+            <div class="ci-cap" style="left:43.64%;background:#9B9384;margin-left:-2px"></div>
+            <div class="ci-point" style="left:35%;background:#9B9384"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto muy pequeño">d = 0,17<span class="ci">[-0,01 — 0,36]</span></div>
+        </div>
+
+        <div class="mod-row">
+          <div class="mod-label">Finanzas<span class="hint">ahorro, impuestos</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:7.73%;width:85.45%;background:#9B9384"></div>
+            <div class="ci-cap" style="left:7.73%;background:#9B9384"></div>
+            <div class="ci-cap" style="left:93.18%;background:#9B9384;margin-left:-2px"></div>
+            <div class="ci-point" style="left:50.45%;background:#9B9384"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto mediano">d = 0,51<span class="ci">[-0,43 — 1,45]</span></div>
+        </div>
+
+        <div class="mod-axis">
+          <div></div>
+          <div class="axis-ticks">
+            <span class="tick-first" style="left:0%">-0,6</span><span style="left:18.18%">-0,2</span><span style="left:27.27%">0</span><span style="left:45.45%">0,4</span><span style="left:63.64%">0,8</span><span style="left:81.82%">1,2</span><span class="tick-last" style="left:100%">1,6</span>
+          </div>
+          <div></div>
+        </div>
+        <div class="mod-axis-label">Tamaño del efecto (d de Cohen) — la línea vertical marca el cero (sin efecto)</div>
+      </div>
+    </div>
+
+    <div class="mod-card" id="modCard3">
+      <div class="mod-card-head">
+        <div class="mod-card-letter">C</div>
+        <div class="mod-card-titles">
+          <h3>Según el entorno</h3>
+          <p>¿Dónde se realizó el experimento?</p>
+        </div>
+      </div>
+      <div class="mod-card-body">
+        <div class="mod-row top">
+          <div class="mod-label">Laboratorio<span class="hint">condiciones controladas</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:43.64%;width:14.09%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:43.64%;background:#1B5F58"></div>
+            <div class="ci-cap" style="left:57.73%;background:#1B5F58;margin-left:-2px"></div>
+            <div class="ci-point" style="left:50.91%;background:#1B5F58"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto mediano">d = 0,52<span class="ci">[0,36 — 0,67]</span></div>
+        </div>
+
+        <div class="mod-row">
+          <div class="mod-label">Campo<span class="hint">mundo real</span></div>
+          <div class="plot-area">
+            <div class="zero-line" style="left:27.27%"></div>
+            <div class="ci-bar" style="left:23.64%;width:64.55%;background:#9B9384"></div>
+            <div class="ci-cap" style="left:23.64%;background:#9B9384"></div>
+            <div class="ci-cap" style="left:88.18%;background:#9B9384;margin-left:-2px"></div>
+            <div class="ci-point" style="left:55.91%;background:#9B9384"></div>
+          </div>
+          <div class="bar-value" data-tip="Efecto mediano">d = 0,63<span class="ci">[-0,08 — 1,34]</span></div>
+        </div>
+
+        <div class="mod-axis">
+          <div></div>
+          <div class="axis-ticks">
+            <span class="tick-first" style="left:0%">-0,6</span><span style="left:18.18%">-0,2</span><span style="left:27.27%">0</span><span style="left:45.45%">0,4</span><span style="left:63.64%">0,8</span><span style="left:81.82%">1,2</span><span class="tick-last" style="left:100%">1,6</span>
+          </div>
+          <div></div>
+        </div>
+        <div class="mod-axis-label">Tamaño del efecto (d de Cohen) — la línea vertical marca el cero (sin efecto)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend-mods">
+    <span class="legend-swatch"><span class="legend-dot" style="background:#1B5F58"></span>Efecto distinto de cero con confianza</span>
+    <span class="legend-swatch"><span class="legend-dot" style="background:#9B9384"></span>Rango plausible cruza cero o es muy amplio</span>
+    <span class="legend-mark tip" data-tip="Mayor efecto entre los confiables: el más alto cuyo rango plausible no cruza el cero. Categorías como Finanzas tienen un valor más alto pero su rango es tan amplio que no es informativo.">más confiable en su categoría</span>
+  </div>
+
+  <p class="mod-note">Mira el caso de Finanzas: su promedio es el más alto (d = 0,51), pero su rango plausible va desde efecto negativo fuerte hasta efecto positivo enorme. En la práctica, no sabemos casi nada. Por eso "más confiable" no significa "el número más alto", sino "el más alto entre los que tienen evidencia clara".</p>
+</section>
+
+<section style="border-bottom:0;padding-bottom:0">
+  <div class="bottom-line reveal">
+    <div class="num">04 · Línea de fondo</div>
+    <h2>Los <i>nudges</i> <em>pueden</em> funcionar. Pero su impacto típico es modesto, desigual y, en agregado, mucho menor de lo que sugieren las publicaciones individuales.</h2>
+    <p>Se recomienda tratarlos como herramienta complementaria, no sustituta, de intervenciones estructurales o basadas en incentivos. La variabilidad masiva entre estudios (99,9&nbsp;%) implica que casos específicos pueden funcionar bien, pero hoy no podemos predecir cuáles sin probarlos en el campo, con preregistro transparente y reporte honesto de persistencia, efectos secundarios y costos.</p>
+    <p class="recap">Si tu próxima decisión depende de un <i>nudge</i>, asume que su efecto será pequeño.</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-ref">
+        <span class="label">Referencia</span>
+        Hu, B., Xia, Z., Guo, Q., Lu, C., Constantino, S. M., &amp; Ju, X. (2025). Assessing nudge impact: A comprehensive second-order meta-analysis. <em>Journal of Behavioral Decision Making</em>, <em>38</em>(5), e70053. <a href="https://doi.org/10.1002/bdm.70053" target="_blank" rel="noopener">https://doi.org/10.1002/bdm.70053</a>
+      </div>
+      <div class="footer-author">
+        <div class="label">Elaborado por</div>
+        <div class="name"><a href="https://www.linkedin.com/in/andresmarincortes/" target="_blank" rel="noopener">Andrés Marín Cortés, PhD</a></div>
+        <div class="role">Behavioral Specialist</div>
+        <div class="li-line">
+          <a href="https://www.linkedin.com/in/andresmarincortes/" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/andresmarincortes
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal, .fade-in, .scale-strip').forEach(function(el){io.observe(el);});
+
+  function revealBars(){
+    var bars = document.querySelectorAll('#collapseChart .reveal-bar');
+    bars.forEach(function(b,i){
+      setTimeout(function(){b.classList.add('bar-visible');}, 300 + i*500);
+    });
+    setTimeout(function(){
+      var c = document.getElementById('collapseCallout');
+      if(c){c.classList.add('shown');}
+      animateCounter(document.getElementById('counter'), 0, 98.5, 1500);
+    }, 300 + 3*500 + 400);
+  }
+
+  function animateCounter(el, from, to, duration){
+    if(!el) return;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts-start)/duration, 1);
+      var ease = 1 - Math.pow(1-p, 3);
+      var v = from + (to-from)*ease;
+      el.textContent = v.toLocaleString('es-CO',{minimumFractionDigits:1,maximumFractionDigits:1});
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var collapseSection = document.getElementById('collapseChart');
+  var collapseObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        revealBars();
+        collapseObserver.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  if(collapseSection){collapseObserver.observe(collapseSection);}
+
+  function revealModerators(card){
+    card.classList.add('in');
+    var rows = card.querySelectorAll('.mod-row');
+    rows.forEach(function(row, i){
+      setTimeout(function(){row.classList.add('shown');}, 200 + i*180);
+    });
+  }
+  document.querySelectorAll('.mod-card').forEach(function(card){
+    var ob = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          revealModerators(card);
+          ob.unobserve(e.target);
+        }
+      });
+    },{threshold:0.2});
+    ob.observe(card);
+  });
+
+  var familyItems = document.querySelectorAll('.family-item');
+  if(familyItems.length){
+    var familyObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          familyItems.forEach(function(it,i){
+            setTimeout(function(){it.classList.add('in');}, i*180);
+          });
+          familyObserver.unobserve(e.target);
+        }
+      });
+    },{threshold:0.3});
+    familyObserver.observe(familyItems[0]);
+  }
+
+  document.querySelectorAll('.bar-row, .mod-row').forEach(function(row){
+    var label = row.querySelector('.bar-label, .mod-label');
+    var value = row.querySelector('.bar-value');
+    if(label && value && !row.querySelector('.tip')){
+      var d = value.textContent.split('[')[0].trim();
+      var ci = value.querySelector('.ci') ? value.querySelector('.ci').textContent : '';
+      row.setAttribute('title', label.firstChild.textContent.trim() + ' · ' + d + ' ' + ci);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
